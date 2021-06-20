@@ -13,7 +13,7 @@ class Profile extends Component {
         <Jumbotron>
         {isAuthenticated && <div><img src={user.picture} alt="profile"></img> </div>}
         {isAuthenticated && <h3> Hello  {user.name}</h3>}
-        {isAuthenticated && <h3>Email: {user.email}</h3>}
+        {isAuthenticated && <h4>Email: {user.email}</h4>}
         </Jumbotron>
         </>
     )
