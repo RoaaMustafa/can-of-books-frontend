@@ -3,6 +3,7 @@ import Header from './header';
 import IsLoadingAndError from './IsLoadingAndError';
 import Footer from './Footer';
 import { withAuth0 } from '@auth0/auth0-react';
+import Profile from './component/Profile';
 import Login from './login';
 import MyFavoriteBooks from './myFavoriteBooks';
 import {
@@ -19,7 +20,7 @@ class App extends React.Component {
     return(
       <>
         <Router>
-          <IsLoadingAndError>
+          {/* <IsLoadingAndError> */}
             <Header />
               <Switch>
                 <Route exact path="/">
@@ -27,9 +28,12 @@ class App extends React.Component {
                {(!isAuthenticated? <Login/> :<MyFavoriteBooks/>)}
                 </Route>
                 {/* TODO: add a route with a path of '/profile' that renders a `Profile` component */}
+              <Route path="/profile">
+              {(!isAuthenticated? <Login/> : <Profile />)}
+              </Route>
               </Switch>
             <Footer />
-          </IsLoadingAndError>
+          {/* </IsLoadingAndError> */}
         </Router>
       </>
     )
