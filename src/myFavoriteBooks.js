@@ -19,14 +19,16 @@ class MyFavoriteBooks extends React.Component {
   componentDidMount = () => {
     let server = process.env.REACT_APP_SERVER_URL;
     let bookReqUrl = `${server}/books?email=${this.props.auth0.user.email}`;
-    // console.log(server);
+    console.log(server);
+    console.log(this.props.auth0.user.email);
     axios.get(bookReqUrl).then((bookResult) => {
       let dataBook = bookResult.data;
       this.setState({
      data: dataBook
       })
+ 
     });
-    console.log(this.state.data);
+    console.log(this.dataBook);
     // console.log(this.state.data);
     // console.log(this.state.dataBook);
   };
