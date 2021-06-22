@@ -43,6 +43,7 @@ class MyFavoriteBooks extends React.Component {
             <p>This is a collection of my favorite books</p>
           </Jumbotron>
           {
+            this.state.data.length !==0 &&
             this.state.data.map((item, indx) => {
               return (
                 <Carousel.Item key={indx} interval={1000}>
