@@ -49,7 +49,7 @@ class MyFavoriteBooks extends React.Component {
                 <Carousel.Item key={indx} interval={1000}>
                   <img
                     className="d-block w-100"
-                    src={item.status}
+                    src={item.image}
                     alt="slide"
                   />
                   <Carousel.Caption>
