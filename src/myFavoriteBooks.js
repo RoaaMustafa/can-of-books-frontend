@@ -23,6 +23,7 @@ class MyFavoriteBooks extends React.Component {
       name:"",
       description:"",
       status:"",
+      img_url:"",
       index:0,
       item:'',
     };
@@ -52,6 +53,11 @@ show=()=>{
       description: e.target.value
     })
   }
+  setImage = (e) => {
+    this.setState({
+      img_url: e.target.value
+    })
+  }
   setStatus = (e) => {
     this.setState({
       status: e.target.value
@@ -66,6 +72,8 @@ show=()=>{
        this.setState({
          name:item.name,
          description:item.description,
+         img_url:item.img_url,
+         status:item.status,
          item:item,
          index:idx
        })
@@ -76,6 +84,7 @@ show=()=>{
     const bookData = {
       name: e.target.name.value,
       description: e.target.description.value,
+      img_url:e.target.img_url.value,
       status:e.target.status.value,
       email:this.props.auth0.user.email
     }
@@ -93,6 +102,7 @@ console.log('Im inside update and inex = ',this.state.index);
     const bookInfo2 = {
       name: event.target.name.value,
       description: event.target.description.value,
+      img_url:event.target.img_url.value,
       status:event.target.status.value,
       email:this.props.auth0.user.email
     }
@@ -155,6 +165,7 @@ console.log(bookInfo2);
             updateBook={this.updateBook}
             handleName={this.setName}
             handleDesc={this.setDescription}
+            handleImage={this.setImage}
             handleStatus={this.setStatus}
              />
             }
@@ -163,17 +174,14 @@ console.log(bookInfo2);
             this.state.data.map((item, indx) => {
               return (
                 <Card className="text-center" key={indx}>
-  
                 <Card.Body>
                   <Card.Title>{item.name}</Card.Title>
                   <Card.Text>
                   {item.description}
                   </Card.Text>
-                  {/* <Card.Text>
-                  {item.image}
-                  </Card.Text> */}
+                  <Card.Img variant="top" src={item.img_url} />
                   <Button variant="primary"  onClick={()=>this.deleteBook(indx)}>Delete</Button>
-                  <Button variant="primary"   onClick={()=>this.updateONBook(indx,item)}>Update</Button>
+                  <Button variant="primary"   onClick={()=>this.updateONBook(indx,item)}>Update !</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">{item.status}</Card.Footer>
               </Card>
