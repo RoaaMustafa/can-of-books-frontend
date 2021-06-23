@@ -45,6 +45,16 @@ export class UpdateBookForm extends Component {
                   defaultValue={this.props.item.description}
                 />
               </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Book image Url</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Image"
+                  name="img_url"
+                  onChange={(e) => this.props.handleImage(e)}
+                  defaultValue={this.props.item.img_url}
+                />
+              </Form.Group>
               <Form.Group controlId="exampleForm.SelectCustom">
                 <Form.Label>Status</Form.Label>
                 <Form.Control

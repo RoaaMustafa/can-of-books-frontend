@@ -28,6 +28,10 @@ export class BookFormModal extends Component {
 <Form.Label>Description </Form.Label>
 <Form.Control type="text" placeholder="Description" name="description" />
 </Form.Group>
+<Form.Group className="mb-3" controlId="formBasicPassword">
+<Form.Label>Book image Url </Form.Label>
+<Form.Control type="text" placeholder="Image" name="img_url" />
+</Form.Group>
 <Form.Group controlId="exampleForm.SelectCustom">
 <Form.Label>Status</Form.Label>
 <Form.Control as="select" custom name="status">
